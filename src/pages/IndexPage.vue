@@ -1,13 +1,8 @@
 <template>
   <q-page padding>
-    <q-table
-    title='crud'
-    :rows='posts'
-    :columns='columns'
-    row-key='name' />
+    <q-table title="crud" :rows="posts" :columns="columns" row-key="name" />
   </q-page>
 </template>
-
 
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
@@ -39,8 +34,8 @@ export default defineComponent({
     })
     const getPost = async () => {
       try {
-        const response = api.get('http://localhost:3000/posts')
-        console.log(response)
+        const { data } = await api.get('posts')
+        posts.value = data
       } catch (error) {}
     }
     return {
