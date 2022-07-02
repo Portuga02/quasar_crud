@@ -1,3 +1,4 @@
+<!-- eslint-disable semi -->
 <template>
   <q-page padding>
     <q-table title="crud" :rows="posts" :columns="columns" row-key="name" />
@@ -5,7 +6,8 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted } from 'vue'
+// eslint-disable-next-line semi
+import { defineComponent, ref, onMounted } from 'vue';
 import { api } from 'boot/axios'
 
 export default defineComponent({
@@ -18,8 +20,7 @@ export default defineComponent({
         name: 'title',
         field: 'title',
         label: 'Titulo',
-        sortable: true,
-        align: 'left'
+        sortable: true
       },
       {
         name: 'author',

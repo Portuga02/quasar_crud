@@ -18,8 +18,8 @@ module.exports = configure(function (ctx) {
       // include = [],
       // exclude = [],
       // rawOptions = {},
-      // warnings: true,
-      // errors: true
+      warnings: true,
+      errors: true
     },
 
     // https://v2.quasar.dev/quasar-cli/prefetch-feature
@@ -60,7 +60,7 @@ module.exports = configure(function (ctx) {
       },
 
       vueRouterMode: 'hash',
-      env:{
+      env: {
         API_URL: ctx.dev
           ? 'http://localhost:3000/'
           : 'https://dev.api.com'
