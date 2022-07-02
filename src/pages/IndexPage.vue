@@ -8,6 +8,7 @@
   </q-page>
 </template>
 
+
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
 import { api } from 'boot/axios'
