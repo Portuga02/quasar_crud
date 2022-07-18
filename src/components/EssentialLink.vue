@@ -1,7 +1,5 @@
 <template>
-  <q-item clickable
-    :to="route"
-    exac>
+  <q-item clickable :to="route" exac>
     <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>

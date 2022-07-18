@@ -11,7 +11,7 @@
 const { configure } = require('quasar/wrappers')
 const path = require('path')
 
-module.exports = configure(function (/* ctx */) {
+module.exports = configure(function (ctx) {
   return {
     eslint: {
       // fix: true,
@@ -59,7 +59,12 @@ module.exports = configure(function (/* ctx */) {
         node: 'node16'
       },
 
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'hash',
+      env: {
+        API_URL: ctx.dev
+          ? 'http://localhost:3000/'
+          : 'https://dev.api.com'
+      } // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -78,15 +83,15 @@ module.exports = configure(function (/* ctx */) {
       // extendViteConf (viteConf) {},
       // viteVuePluginOptions: {},
 
-      vitePlugins: [
-        ['@intlify/vite-plugin-vue-i18n', {
-          // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
-          // compositionOnly: false,
+      // vitePlugins: [
+      //   ['@intlify/vite-plugin-vue-i18n', {
+      //     // if you want to use Vue I18n Legacy API, you need to set `compositionOnly: false`
+      //     // compositionOnly: false,
 
-          // you need to set i18n resource including paths !
-          include: path.resolve(__dirname, './src/i18n/**')
-        }]
-      ]
+      //     // you need to set i18n resource including paths !
+      //     include: path.resolve(__dirname, './src/i18n/**')
+      //   }]
+      // ]
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
