@@ -2,16 +2,23 @@
 <template>
   <q-page padding>
     <q-table
-     title="Lista de Usuários salvos"
+     title="Lista de usuários"
      :rows="posts"
      :columns="columns"
      row-key="name" >
-
+  <template v-slot:top>
+  <span> Novos Usuários </span>
+  <q-space/>
+   <q-btn
+         style="background: #FF0080; color: white; text-align:center;"
+         size ="sm" label="Novo Usuário"  :to="{ name: 'formPost'}">
+    </q-btn>
+  </template>
      <template v-slot:body-cell-actions="props">
         <q-td :props="props">
          <q-btn
          style="background: #FF0080; color: white; text-align:justify-center;"
-         size ="sm" label="deletar"  icon="delete" @click="handleDeletePost(props.row.id)"/>
+         size ="sm" label="Deletar"  icon="delete" @click="handleDeletePost(props.row.id)"/>
         </q-td>
       </template>
     </q-table>
@@ -44,9 +51,51 @@ export default defineComponent({
         align: 'left'
       },
       {
+        name: 'content',
+        field: 'content',
+        label: 'Conteudo sobre',
+        sortable: true,
+        align: 'left'
+      },
+      {
         name: 'years',
         field: 'years',
         label: 'Idade',
+        sortable: true,
+        align: 'left'
+      },
+      {
+        name: 'address',
+        field: 'address',
+        label: 'Idade',
+        sortable: true,
+        align: 'left'
+      },
+      {
+        name: 'country',
+        field: 'country',
+        label: 'País',
+        sortable: true,
+        align: 'left'
+      },
+      {
+        name: 'fone',
+        field: 'fone',
+        label: 'Telefone',
+        sortable: true,
+        align: 'left'
+      },
+      {
+        name: 'email',
+        field: 'email',
+        label: 'email',
+        sortable: true,
+        align: 'left'
+      },
+      {
+        name: 'github',
+        field: 'github',
+        label: 'Git Hub ',
         sortable: true,
         align: 'left'
       },
